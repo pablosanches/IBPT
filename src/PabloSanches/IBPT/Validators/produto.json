@@ -1,0 +1,37 @@
+{
+    "token": {
+        "required": true
+    },
+    "cnpj": {
+        "required": true,
+        "type": "cnpj"
+    },
+    "codigo": {
+        "required": true
+    },
+    "uf": {
+        "type": "chosen",
+        "expected": ["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RR", "RO", "RJ", "RN", "RS", "SC", "SP", "SE", "TO"],
+        "maxlength": 2
+    },
+    "ex": {
+        "required": true,
+        "type": "integer"
+    },
+    "codigoInterno": {
+        "required": false
+    },
+    "descricao": {
+        "required": true
+    },
+    "unidadeMedida": {
+        "required": true
+    },
+    "valor": {
+        "required": true,
+        "type": "double"
+    },
+    "gtin": {
+        "required": true
+    }
+}
