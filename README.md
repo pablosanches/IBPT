@@ -1,7 +1,7 @@
 # IBPT
 ## _Simple SDK to consume IBPT API_
 
-[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+[![Build Status](https://travis-ci.org/pablosanches/ibpt.svg?branch=master)](https://travis-ci.org/pablosanches/ibpt)
 
 ## Features
 
