@@ -180,12 +180,8 @@ abstract class Validator
             foreach ($rules as $ruleName => $ruleValue) {
                 switch ($ruleName) {
                     case 'required':
-                        if ($ruleValue) {
+                        if (!empty($value)) {
                             self::isRequired($field, $value);
-                        } else {
-                            if (!empty($value)) {
-                                self::isRequired($field, $value);
-                            }
                         }
                     break;
 
