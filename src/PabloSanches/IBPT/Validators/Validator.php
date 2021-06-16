@@ -484,24 +484,24 @@ abstract class Validator
 		    self::$failures[$field]['msg'][] = self::setDefaultMessage($field, $defaultMsg);
             return false;
         } else {
-            $j = 5;
-            $k = 6;
+            $val1 = 5;
+            $val2 = 6;
             $soma1 = "";
             $soma2 = "";
 
             for ($i = 0; $i < 13; $i++) {
 
-                $j = $j == 1 ? 9 : $j;
-                $k = $k == 1 ? 9 : $k;
+                $val1 = $val1 == 1 ? 9 : $val1;
+                $val2 = $val2 == 1 ? 9 : $val2;
 
-                $soma2 += ($cnpj{$i} * $k);
+                $soma2 += ($cnpj{$i} * $val2);
 
                 if ($i < 12) {
-                    $soma1 += ($cnpj{$i} * $j);
+                    $soma1 += ($cnpj{$i} * $val1);
                 }
 
-                $k--;
-                $j--;
+                $val2--;
+                $val1--;
 
             }
 
