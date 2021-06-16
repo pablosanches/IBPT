@@ -38,26 +38,26 @@ class CurlRequest
     protected static function init($url, $httpHeaders = array())
     {
         // Create instance
-        $ch = curl_init();
+        $chResource = curl_init();
 
         // Set URL
-        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($chResource, CURLOPT_URL, $url);
 
         // Return the transfer as a string
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($chResource, CURLOPT_RETURNTRANSFER, 1);
 
-        curl_setopt($ch, CURLOPT_HEADER, true);
-        curl_setopt($ch, CURLOPT_USERAGENT, 'LojaVirtual/eNotasSDK');
-        curl_setopt($ch, CURLINFO_HEADER_OUT, true);
+        curl_setopt($chResource, CURLOPT_HEADER, true);
+        curl_setopt($chResource, CURLOPT_USERAGENT, 'LojaVirtual/eNotasSDK');
+        curl_setopt($chResource, CURLINFO_HEADER_OUT, true);
 
         // Set HTTP headers
         $headers = array();
         foreach($httpHeaders as $key => $value) {
             $headers[] = "$key: $value";
         }
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($chResource, CURLOPT_HTTPHEADER, $headers);
 
-        return $ch;
+        return $chResource;
     }
 
     /**
@@ -70,32 +70,32 @@ class CurlRequest
      */
     public static function get($url, $httpHeaders = array())
     {
-        $ch = self::init($url, $httpHeaders);
-        return self::processRequest($ch);
+        $chResource = self::init($url, $httpHeaders);
+        return self::processRequest($chResource);
     }
 
     /**
      * Execute a request
      *
-     * @param resource $ch
+     * @param $chResource
      * 
      * @throws CurlException if curl request is failed with error
      * 
      * @return string
      */
-    protected static function processRequest($ch)
+    protected static function processRequest($chResource)
     {
-        $output = curl_exec($ch);
-        $info = curl_getinfo($ch);
+        $output = curl_exec($chResource);
+        $info = curl_getinfo($chResource);
         $response = new CurlResponse($output, $info);
-        self::$lastHttpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        self::$lastHttpCode = curl_getinfo($chResource, CURLINFO_HTTP_CODE);
         
-        if (curl_errno($ch)) {
-            throw new CurlException(curl_errno($ch) . ' : ' . curl_error($ch));
+        if (curl_errno($chResource)) {
+            throw new CurlException(curl_errno($chResource) . ' : ' . curl_error($chResource));
         }
 
         // Close curl resource to free up system resources
-        curl_close($ch);
+        curl_close($chResource);
 
         self::$lastHttpHeaders = $response->getHeaders();
         return $response;
