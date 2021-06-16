@@ -51,7 +51,7 @@ class CurlResponse
     private function parse($response, $curlInfo)
     {
         $response = explode("\r\n\r\n", $response);
-        if (count($response) > 1) {
+        if (!empty($response)) {
             // We want the last two parts
             $response = array_slice($response, -2, 2);
             list($headers, $body) = $response;
@@ -62,8 +62,6 @@ class CurlResponse
                     $this->headers[$headerKey] = $pair[1];
                 }
             }
-        } else {
-            $body = $response[0];
         }
 
         $this->body = $body;
