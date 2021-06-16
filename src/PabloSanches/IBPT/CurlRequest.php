@@ -25,7 +25,7 @@ class CurlRequest
      *
      * @var array
      */
-    public static $lastHttpResponseHeaders = array();
+    public static $lastHttpHeaders = array();
 
     /**
      * Initialize the curl resource
@@ -97,7 +97,7 @@ class CurlRequest
         // Close curl resource to free up system resources
         curl_close($ch);
 
-        self::$lastHttpResponseHeaders = $response->getHeaders();
+        self::$lastHttpHeaders = $response->getHeaders();
         return $response;
     }
 }

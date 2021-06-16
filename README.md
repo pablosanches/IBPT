@@ -5,8 +5,8 @@
 
 ## Features
 
-- Consume Products API;
-- Consume Services API;
+  - Consume Products API;
+  - Consume Services API;
 
 ## Installation
 

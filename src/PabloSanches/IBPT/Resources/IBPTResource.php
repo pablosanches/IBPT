@@ -143,7 +143,7 @@ abstract class IBPTResource
 
     protected function processResponse($responseArray, $dataKey = null)
     {
-        self::$lastHttpResponseHeaders = CurlRequest::$lastHttpResponseHeaders;
+        self::$lastHttpResponseHeaders = CurlRequest::$lastHttpHeaders;
 
         if ($responseArray === null) {
             $httpOk = 200; // Request successful
