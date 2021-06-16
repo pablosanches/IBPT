@@ -166,17 +166,17 @@ abstract class Validator
         if (!array_key_exists($field, $dataArray)) {
             return;
         }
+
         $value = $dataArray[$field];
-        
+
         if (is_array($rules)) {
+
             if (array_key_exists('required', $rules)) {
                 if (!$rules['required'] && empty($value)) {
                     return;
                 }
             }
-        }
 
-        if (is_array($rules)) {
             foreach ($rules as $ruleName => $ruleValue) {
                 switch ($ruleName) {
                     case 'required':
