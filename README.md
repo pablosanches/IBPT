@@ -1,6 +1,7 @@
 # IBPT
 ## _Simple SDK to consume IBPT API_
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/aa64468438794c309b673ce83739f3a8)](https://www.codacy.com/gh/pablosanches/ibpt/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=pablosanches/ibpt&amp;utm_campaign=Badge_Grade)
 [![Build Status](https://travis-ci.org/pablosanches/ibpt.svg?branch=master)](https://travis-ci.org/pablosanches/ibpt)
 
 ## Installation
