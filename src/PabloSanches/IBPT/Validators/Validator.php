@@ -95,12 +95,13 @@ abstract class Validator
     {
         $rulesFile = dirname(__DIR__) . "/Validators/$resourceKey.json";
         $handle = @fopen($rulesFile, "r");
-        if ($handle) {
-            $data = fread($handle, filesize($rulesFile));
-            self::$rules[$resourceKey] = json_decode($data, true);
-        } else {
+        if (!$handle) {
             throw new ValidatorException("Rules file not founded.");
+            die;
         }
+
+        $data = fread($handle, filesize($rulesFile));
+        self::$rules[$resourceKey] = json_decode($data, true);
     }
 
     /**
