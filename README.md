@@ -32,7 +32,7 @@ composer update
 This SDK is very simple to use.
 ```php
 
-use use PabloSanches\IBPT\IBPTClient;
+use PabloSanches\IBPT\IBPTClient;
 
 $config = array(
     'token' => '--your token here--'
