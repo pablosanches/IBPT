@@ -145,7 +145,7 @@ abstract class IBPTResource
     {
         self::$lastHttpResponseHeaders = CurlRequest::$lastHttpResponseHeaders;
 
-        if (is_null($responseArray)) {
+        if ($responseArray === null) {
             $httpOk = 200; // Request successful
             $httpCreated = 201; // Create successful
             $httpDeleted = 204; //Delete successful

@@ -93,9 +93,10 @@ abstract class Validator
      */
     private static function setRules($resourceKey)
     {
-        $rulesFile = __DIR__ . "/$resourceKey.json";
-        if (file_exists($rulesFile)) {
-            $data = file_get_contents($rulesFile);
+        $rulesFile = dirname(__DIR__) . "/Validators/$resourceKey.json";
+        $handle = @fopen($rulesFile, "r");
+        if ($handle) {
+            $data = fread($handle, filesize($rulesFile));
             self::$rules[$resourceKey] = json_decode($data, true);
         } else {
             throw new ValidatorException("Rules file not founded.");
