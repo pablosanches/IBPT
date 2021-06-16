@@ -626,7 +626,7 @@ abstract class Validator
         $failString = '';
 
         if (!empty(self::$failures)) {
-            foreach (self::$failures as $field => $fails) {
+            foreach (self::$failures as $fails) {
                 $failsToPrint[] = implode("\r\n", $fails['msg']);
             }
         }
