@@ -142,11 +142,11 @@ abstract class Validator
                     }
                 }
 
+                $dateToValidate = self::$dataToValidate;
                 if ($recursive && is_array($rule)) { // Segundo nivel
-                    self::checkField($rule, $field, self::$dataToValidate[$parent]);
-                } else {
-                    self::checkField($rule, $field, self::$dataToValidate);
+                    self::$dataToValidate = self::$dataToValidate[$parent];    
                 }
+                self::checkField($rule, $field, $dateToValidate);
             }
         }
 
